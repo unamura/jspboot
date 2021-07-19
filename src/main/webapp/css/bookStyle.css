@@ -1,0 +1,34 @@
+@charset "ISO-8859-1";
+
+h2 {
+    color: rgb(37, 70, 145);
+    font-family:sans-serif;
+}
+
+#formindex {
+    background-color:rgb(255, 79, 79);
+}
+
+#submitview, #submitnot {
+    background-color: cornsilk;
+    color: black;
+    border: 2px solid #555555;
+    border-radius: 12px;
+}
+
+#submitview:hover {
+    background-color: burlywood;
+}
+
+#submitnot:hover {
+    background-color:cadetblue;
+}
+
+#formtable {
+    color: rgb(255, 249, 220);
+}
+
+#linkto {
+    color: rgb(255, 78, 78);
+    text-transform: uppercase;
+}
