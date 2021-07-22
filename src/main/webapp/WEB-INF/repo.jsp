@@ -15,41 +15,44 @@
 				<h1>List of all book in the list</h1>
 				<p>${msgrepo}</p>
 				<c:forEach items="${bookList}" var="book">
-					<form method="post" action="/index/modify">
-						<tr>
-							<td>id: </td>
-							<td>${book.id}</td>
-							<td>Title: </td>
-							<td>${book.title}</td>
-							<td>Author: </td>
-							<td>${book.author}</td>
-							<c:if test="${book.genre != ''}">
-								<td>Genre:</td>
-								<td> ${book.genre}</td>
-							</c:if>
-							<c:if test="${book.year != 0}">
-								<td>Year:</td>
-								<td> ${book.year}</td>
-							</c:if>
-							<c:if test="${book.pages != 0}">
-								<td>Pages number:</td>
-								<td> ${book.pages}</td>
-							</c:if>
-							<c:if test="${book.price != 0}">
-								<td>Price:</td>
-								<td> ${book.price}</td>
-							</c:if>
-							<c:if test="${book.isbn != 0}">
-								<td>ISBN:</td>
-								<td> ${book.isbn}</td>
-							</c:if>
-							<td>
-								<input type="hidden" name="id" value="${book.id}" />
-								<input type="submit" name="modify" value="Modify" class="button-remove" />
-							</td>
-						</tr>
-					</form>
-					<br>
+						<form method="post" action="/index/modify">
+							<div class="table-form-repo">
+								<div class="table-form-col">id: ${book.id}</div>
+								
+								<div class="table-form-col">Title: ${book.title}</div>
+								
+								<div class="table-form-col">Author: ${book.author}</div>
+								
+								
+									<c:if test="${book.genre != ''}">
+									<div>Genre:</div>
+									<div> ${book.genre}</div>
+								</c:if>
+								<c:if test="${book.year != 0}">
+									<div>Year:</div>
+									<div> ${book.year}</div>
+								</c:if>
+								<c:if test="${book.pages != 0}">
+									<div>Pages number:</div>
+									<div> ${book.pages}</div>
+								</c:if>
+								<c:if test="${book.price != 0}">
+									<div>Price:</div>
+									<div> ${book.price}</div>
+								</c:if>
+								<c:if test="${book.isbn != 0}">
+									<div>ISBN:</div>
+									<div> ${book.isbn}</div>
+								</c:if>
+								
+								<div class="table-form-col">
+									<input type="hidden" name="id" value="${book.id}" />
+									<input type="submit" name="modify" value="Modify" class="button-remove" />
+								</div>
+							</div>
+						</form>
+
+						<br>
 				</c:forEach>
 
 				<form action="/index/repo" method="post">

@@ -40,3 +40,14 @@ h2 {
 .button-remove {
     background-color: cornsilk;
 }
+
+.table-form-repo {
+    display: flex;
+    justify-content: flex-start;
+    outline: 2px solid darkslategrey;
+}
+
+.table-form-col {
+    flex: 1;
+    outline: 2px dotted rgb(23, 55, 55);
+}

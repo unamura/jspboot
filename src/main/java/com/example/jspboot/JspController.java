@@ -95,24 +95,23 @@ public class JspController {
 		return "repo";
 	}
 	
-	@PostMapping("/search")
+	@PostMapping("/index/search")
 	public String search(@RequestParam(value = "valueofbook", 
 									required = false) String valueofbook,
 							Model model) {
 		//System.out.println("size: " + );
 
-		model.addAttribute("searchList", bkRepo.find(valueofbook));
+		model.addAttribute("bookList", bkRepo.find(valueofbook));
 		System.out.println("size: " + bkRepo.size( bkRepo.find(valueofbook)) );
 		if( bkRepo.size( bkRepo.find(valueofbook)) == 0 ) {
-			String result = "index";
-			System.out.println("size index: " + result);
+			model.addAttribute("search", "true");
 			model.addAttribute("msgsearch", "No book found..");
-			return result;
+			return "index";
 		}
 		else {
 			System.out.println("" + bkRepo.find(valueofbook));
 			//String result = "search";
-			return "search";
+			return "repo";
 		}
 	}
 	
@@ -127,6 +126,8 @@ public class JspController {
 		model.addAttribute("action", "/index/modify");
 		book.setId(id);
 		bkRepo.substitute(book);
+		model.addAttribute("bookMod", bkRepo.bookMod(id));
+		model.addAttribute("modid", "true");
 		return "index";
 	}
 	
@@ -139,6 +140,7 @@ public class JspController {
 		//model.addAttribute("action", "/index/modify");
 		model.addAttribute("formTitle", "Modify book");
 		model.addAttribute("bookMod", bkRepo.bookMod(id));
+		model.addAttribute("modid", "true");
 		return "index";
 	}
 	

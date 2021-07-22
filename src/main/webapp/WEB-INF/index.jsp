@@ -13,7 +13,7 @@
 
 				<c:if test="${search == 'true'}">
 					<h2>Search</h2>
-					<form action="search" method="post">
+					<form action="/index/search" method="post">
 						<input type="text" name="valueofbook" placeholder="id, title, author,..." />
 						<input type="submit" value="Search" />
 						${msgsearch}
@@ -21,7 +21,14 @@
 				</c:if>
 
 				<h2>${formTitle}</h2>
-				<span>${bookMod.id} ${bookMod.title} ${bookMod.author}</span>
+				<c:if test="${modid == 'true'}">
+					<div class="table-form-repo">
+						<div class="table-form-col">${bookMod.id}</div>
+						<div class="table-form-col">${bookMod.title}</div>
+						<div class="table-form-col">${bookMod.author}</div>
+					</div>
+				</c:if>
+
 				<div id="formindex">
 					<form:form action="${action}" method="post" modelAttribute="book">
 						<table id="formtable" class="table-index">
@@ -93,7 +100,7 @@
 									<input type="submit" value="Submit and view" name="suband" id="submitview" />
 								</td-->
 								<td>
-									<input type="hidden" name="idmod" value="${bookMod.id}"/>
+									<input type="hidden" name="idmod" value="${bookMod.id}" />
 									<input type="submit" value="Submit" name="sub" id="submitnot" />
 								</td>
 								<td>
