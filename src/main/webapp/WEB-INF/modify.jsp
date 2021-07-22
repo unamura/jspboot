@@ -11,7 +11,7 @@
 <body>
 	<h2>Libro da modificare</h2>
 	<p>${book.id} ${book.title} ${book.author}</p>
-	<form:form action="modify" method="post" modelAttribute="book">
+	<form:form action="/index/modify" method="post" modelAttribute="book">
 		<input type="hidden" name="id" value="${book.id}"/>
 		<p>
 		Id: ${book.id}

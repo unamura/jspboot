@@ -1,16 +1,16 @@
 package com.example.jspboot;
 
-import java.awt.print.Printable;
+//import java.awt.print.Printable;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,7 +26,7 @@ public class JspController {
 	
 	@GetMapping("/index")
 	public String welcome(Model model) {
-		//model.addAttribute("action", "insert");
+		model.addAttribute("action", "/insert");
 		model.addAttribute("search", "true");
 		model.addAttribute("formTitle", "Insert book");
 		model.addAttribute("req", "required");
@@ -67,14 +67,14 @@ public class JspController {
 		bkRepo.save(book);
 		//model.addAttribute("book", bkRepo.loadLast());
 		model.addAttribute("message", "Book inserted");
-		model.addAttribute("action", "inserti");
+		model.addAttribute("action", "/insert");
 		model.addAttribute("formTitle", "Insert book");
 		model.addAttribute("req", "required");
 		model.addAttribute("search", "true");
 		return "index";
 	}
 
-	@RequestMapping("/repo")
+	@RequestMapping("/index/repo")
 	public String bookRepo(Model model) {
 		//Boolean empty = false;
 		if( bkRepo.size( bkRepo.load()) == 0 ) {
@@ -85,7 +85,7 @@ public class JspController {
 		return "repo";
 	}
 	
-	@PostMapping("/repo")
+	@PostMapping("/index/repo")
 	public String delete(@RequestParam(value = "id", 
 										required = true, 
 										defaultValue = "-1") int id, 
@@ -117,22 +117,26 @@ public class JspController {
 	}
 	
 	/** Per modificare effettivamente il libro selezionato */
-	@PostMapping(value="/modify", params="sub")
-	public String newField(@ModelAttribute Book book, Model model) {
+	@PostMapping(value="/index/modify", params="sub")
+	public String newField(@RequestParam(value="idmod") int id, @ModelAttribute Book book, Model model) {
 		System.out.println("newField(..)");
-		//System.out.println("Book: " + book.toString());
+		System.out.println("Book newField(): " + book.toString()
+							+ " id: " + id);
 		//System.out.println("BookRepo: " + bkRepo.substitute(book).toString());
 		// Repo to accept the book
-		model.addAttribute("action", "modify");
+		model.addAttribute("action", "/index/modify");
+		book.setId(id);
 		bkRepo.substitute(book);
 		return "index";
 	}
 	
 	/** Per far arrivare alla pagina del form*/
-	@PostMapping(value="/modify", params="modify")
+	@PostMapping(value="/index/modify", params="modify")
 	public String modify(@RequestParam int id, Model model) {
 		System.out.println("modify(..)");
-		//model.addAttribute("action", "modify");
+		System.out.println("modify() id: " + id);
+		
+		//model.addAttribute("action", "/index/modify");
 		model.addAttribute("formTitle", "Modify book");
 		model.addAttribute("bookMod", bkRepo.bookMod(id));
 		return "index";

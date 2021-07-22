@@ -142,12 +142,13 @@ public class BookRepository {
 				compare(bkMod, bkOld);
 				//curId = bk.getId();
 				bk = bkOld;
+				System.out.println("Old: " + bkOld.toString());
 			}
 		}
 		// Check to validate the modifications
 	
 		//bookList.set(indexBook, bkMod);
-		System.out.println("Mod: " + bk.getTitle());
+		System.out.println("Mod: " + bkMod);
 	
 		return bk;
 	}
@@ -171,9 +172,28 @@ public class BookRepository {
 	public void compare(Book bkMod, Book bkRepo) {
 		
 		if(bkMod.getTitle().equalsIgnoreCase(bkRepo.getTitle())==false 
-				&& bkMod.getTitle().equals("")==false ) {
+				&& bkMod.getTitle().equals("")==false )
 			bkRepo.setTitle(bkMod.getTitle());
-		}
+		
+		if(bkMod.getAuthor().equalsIgnoreCase(bkRepo.getAuthor())==false 
+				&& bkMod.getAuthor().equals("")==false )
+			bkRepo.setAuthor(bkMod.getAuthor());
+		
+		if( bkMod.getGenre().equalsIgnoreCase(bkRepo.getGenre())==false 
+				&& bkMod.getGenre().equals("")==false )
+			bkRepo.setGenre(bkMod.getGenre());
+		
+		if( bkMod.getYear() != bkRepo.getYear() && bkMod.getYear() != 0 )
+			bkRepo.setYear(bkMod.getYear());
+		
+		if( bkMod.getPages() != bkRepo.getPages() && bkMod.getPages() != 0 )
+			bkRepo.setPages(bkMod.getPages());
+		
+		if( bkMod.getPrice() != bkRepo.getPrice() && bkMod.getPrice() != 0.0 )
+			bkRepo.setPrice(bkMod.getPrice());
+		
+		if( bkMod.getIsbn() != bkRepo.getIsbn() && bkMod.getIsbn() != 0 )
+			bkRepo.setIsbn(bkMod.getIsbn());
 	}
 	
 	/*public Boolean checkISBN(Book book) {

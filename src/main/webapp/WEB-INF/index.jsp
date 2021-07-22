@@ -23,8 +23,8 @@
 				<h2>${formTitle}</h2>
 				<span>${bookMod.id} ${bookMod.title} ${bookMod.author}</span>
 				<div id="formindex">
-					<form:form action="insert" method="post" modelAttribute="book">
-						<table id="formtable">
+					<form:form action="${action}" method="post" modelAttribute="book">
+						<table id="formtable" class="table-index">
 							<tr>
 								<td>
 									Title:
@@ -93,6 +93,7 @@
 									<input type="submit" value="Submit and view" name="suband" id="submitview" />
 								</td-->
 								<td>
+									<input type="hidden" name="idmod" value="${bookMod.id}"/>
 									<input type="submit" value="Submit" name="sub" id="submitnot" />
 								</td>
 								<td>
@@ -107,7 +108,7 @@
 					<a href="/index">HOME</a>
 					<!--/p>
 			<p-->
-					<a href="/repo">Print the book list</a>
+					<a href="/index/repo">Print the book list</a>
 				</p>
 			</body>
 

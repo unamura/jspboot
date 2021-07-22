@@ -32,3 +32,11 @@ h2 {
     color: rgb(255, 78, 78);
     text-transform: uppercase;
 }
+
+.table-repo {
+    outline: 2px solid aquamarine;
+}
+
+.button-remove {
+    background-color: cornsilk;
+}
