@@ -48,12 +48,6 @@
 				</td>
 		</tr>
 		</form>
-		
-		<form action="repo" method="post">
-		<p>${msgdelete}</p>
-		<input type="number" name="id" placeholder="delete id"/>
-		<input type="submit" value="Remove by Id"/>
-		</form>	
 		<br>
 	</c:forEach>
 	

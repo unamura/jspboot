@@ -1,6 +1,7 @@
 package com.example.jspboot;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.ui.Model;
@@ -131,19 +132,24 @@ public class BookRepository {
 		return false;
 	}
 	
-	public Book substitute(Book book) {
+	public Book substitute(Book bkMod) {
 		//int curId = 0;
-		int indexBook = 0;
-		Book bkRepo = new Book();
-		for(Book bk : bookList) {
-			if(book.getId() == bk.getId()) {
-				indexBook = bookList.indexOf(bk);
+		//int indexBook = 0;
+		Book bk = new Book();
+		for(Book bkOld : bookList) {
+			if(bkMod.getId() == bkOld.getId()) {
+				//indexBook = bookList.indexOf(bk);
+				compare(bkMod, bkOld);
 				//curId = bk.getId();
-				bkRepo = bk;
+				bk = bkOld;
 			}
 		}
-		bookList.set(indexBook, book);
-		return bkRepo;
+		// Check to validate the modifications
+	
+		//bookList.set(indexBook, bkMod);
+		System.out.println("Mod: " + bk.getTitle());
+	
+		return bk;
 	}
 	
 	public Boolean checkISBN(Book book) {
@@ -160,6 +166,14 @@ public class BookRepository {
 		}
 		System.out.println("isbn <= 0");
 		return true;	
+	}
+	
+	public void compare(Book bkMod, Book bkRepo) {
+		
+		if(bkMod.getTitle().equalsIgnoreCase(bkRepo.getTitle())==false 
+				&& bkMod.getTitle().equals("")==false ) {
+			bkRepo.setTitle(bkMod.getTitle());
+		}
 	}
 	
 	/*public Boolean checkISBN(Book book) {
