@@ -11,6 +11,6 @@ public class Program {
 	
 	public String getJournalist(String name) {
 		journalist.setName(name);
-		return journalist.toString();
+		return "This is a program: " + journalist.toString();
 	}
 }
