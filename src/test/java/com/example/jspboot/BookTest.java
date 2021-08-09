@@ -35,10 +35,10 @@ class BookTest {
 		
 		log.info("First load:\n" + brn.load());
 		
-		String expOne = "[1, 1q84, Murakami]";
+		//String expOne = "[1, 1q84, Murakami]";
 		//assertEquals(expOne, brn.find(1));
 		
-		String expTwo = "[2, Macbeth, Shakespeare]";
+		//String expTwo = "[2, Macbeth, Shakespeare]";
 		//assertEquals(expTwo, brn.find(2));
 		
 		Book bkThree = new Book();

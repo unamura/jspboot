@@ -1,7 +1,7 @@
 package com.example.jspboot;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+//import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.ui.Model;
@@ -117,7 +117,7 @@ public class BookRepository {
 	        return false;
 	    }
 	    try {
-	        double d = Double.parseDouble(value);
+	        //double d = Double.parseDouble(value);
 	    } catch (NumberFormatException nfe) {
 	        return false;
 	    }
@@ -246,6 +246,6 @@ public class BookRepository {
 	
 	public static void main(String[] args) {
 		System.out.println("Here");
-		int n = 1553794651;
+		//int n = 1553794651;
 	}
 }
