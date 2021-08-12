@@ -1,5 +1,8 @@
 package com.example.jspboot;
 
+import org.springframework.stereotype.Component;
+
+//@Component
 public class Book {
 	 private int id;
 	 private String title;

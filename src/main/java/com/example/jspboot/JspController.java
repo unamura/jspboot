@@ -1,5 +1,7 @@
 package com.example.jspboot;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 //import java.awt.print.Printable;
 
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class JspController {
-	private BookRepository  bkRepo = new BookRepository();
+	@Autowired
+	private BookRepository  bkRepo;
+	//private BookRepository  bkRepo = new BookRepository();
+	
+	@Autowired
+	private Book bkAuto;
 	
 	@RequestMapping("/")
 	public String home() {
@@ -30,7 +37,8 @@ public class JspController {
 		model.addAttribute("search", "true");
 		model.addAttribute("formTitle", "Insert book");
 		model.addAttribute("req", "required");
-		model.addAttribute("book", new Book());
+		model.addAttribute("book", bkAuto);
+		System.out.println("Autowired index: " + bkAuto);
 		return "index";
 	}
 	
@@ -71,6 +79,7 @@ public class JspController {
 		model.addAttribute("formTitle", "Insert book");
 		model.addAttribute("req", "required");
 		model.addAttribute("search", "true");
+		System.out.println("Autowired insert: " );
 		return "index";
 	}
 

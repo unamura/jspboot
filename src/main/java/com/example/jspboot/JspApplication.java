@@ -1,5 +1,6 @@
 package com.example.jspboot;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -14,6 +15,8 @@ import com.example.springtest.Production;
 public class JspApplication {
 
 	public static void main(String[] args) {
+		SpringApplication.run(JspApplication.class, args);
+		/*
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(SystemConfig.class);
 		
 		Movie m = ctx.getBean(Movie.class);
@@ -29,6 +32,7 @@ public class JspApplication {
 		System.out.println("Production = " + ip.getExpert ());
 		
 		((ConfigurableApplicationContext) ctx).close();
+		*/
 	}
 
 }
