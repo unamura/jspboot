@@ -1,4 +1,4 @@
-package com.example.springtest;
+package com.example.dao;
 
 public interface MovieRole {
 

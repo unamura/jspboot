@@ -6,10 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.example.springtest.Movie;
-import com.example.springtest.Production;
-//import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.RestController;
+import com.example.dao.Movie;
+import com.example.dao.Production;
 
 @SpringBootApplication
 public class JspApplication {

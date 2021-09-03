@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.example.springtest.Actor;
-import com.example.springtest.ExpertRole;
-import com.example.springtest.HybridRole;
-import com.example.springtest.Movie;
-import com.example.springtest.Production;
-import com.example.springtest.Technician;
+import com.example.dao.Actor;
+import com.example.dao.ExpertRole;
+import com.example.dao.HybridRole;
+import com.example.dao.Movie;
+import com.example.dao.Production;
+import com.example.dao.Technician;
 
 @Configuration
 public class SystemConfig {
